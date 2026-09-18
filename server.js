@@ -22,27 +22,75 @@ async function startServer() {
 
   await connectDB();
 
+  const staticAllowedOrigins = [
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+    'https://road-drive.vercel.app',
+    'https://road-drive-2mb8q4c8z-shashanknerkars-projects.vercel.app',
+  ];
+
+  const getEnvAllowedOrigins = () => {
+    if (!process.env.CLIENT_URL) return [];
+    return process.env.CLIENT_URL.split(',')
+      .map((url) => url.trim().replace(/\/$/, ''))
+      .filter(Boolean);
+  };
+
+  const isAllowedOrigin = (origin) => {
+    if (!origin) return true;
+
+    const cleanOrigin = origin.trim().replace(/\/$/, '');
+
+    if (staticAllowedOrigins.includes(cleanOrigin)) {
+      return true;
+    }
+
+    const envOrigins = getEnvAllowedOrigins();
+    if (envOrigins.includes(cleanOrigin)) {
+      return true;
+    }
+
+    // Support Vercel production and preview deployments for RoadDrive
+    try {
+      const parsed = new URL(cleanOrigin);
+      if (
+        parsed.protocol === 'https:' &&
+        parsed.hostname.endsWith('.vercel.app') &&
+        (parsed.hostname === 'road-drive.vercel.app' || parsed.hostname.startsWith('road-drive-'))
+      ) {
+        return true;
+      }
+    } catch {
+      return false;
+    }
+
+    return false;
+  };
+
+  const corsOptions = {
+    origin: (origin, callback) => {
+      if (isAllowedOrigin(origin)) {
+        callback(null, true);
+      } else {
+        callback(null, false);
+      }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
+    exposedHeaders: ['Set-Cookie'],
+    optionsSuccessStatus: 204,
+  };
+
+  // CORS must be registered before routes and parsers to properly handle preflight
+  app.use(cors(corsOptions));
+  app.options('*', cors(corsOptions));
+
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(cookieParser());
-
-  const clientUrl = process.env.CLIENT_URL;
-  const allowedOrigins = clientUrl
-    ? [clientUrl, 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:3000']
-    : ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:3000'];
-
-  app.use(
-    cors({
-      origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV !== 'production' || !clientUrl) {
-          callback(null, true);
-        } else {
-          callback(new Error('Not allowed by CORS'));
-        }
-      },
-      credentials: true,
-    })
-  );
 
   app.get('/api/health', (req, res) => {
     res.json({
