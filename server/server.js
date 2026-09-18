@@ -3,7 +3,9 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
-import { connectDB } from './config/db.js';
+import { connectDB, isMongoConnected } from './config/db.js';
+import Course from './models/Course.js';
+import { seedDatabase } from './seed.js';
 
 import authRoutes from './routes/authRoutes.js';
 import courseRoutes from './routes/courseRoutes.js';
@@ -18,7 +20,19 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-connectDB();
+connectDB().then(async () => {
+  if (isMongoConnected()) {
+    try {
+      const courseCount = await Course.countDocuments();
+      if (courseCount === 0) {
+        console.log('[RoadDrive] Empty database detected on startup. Seeding initial dataset...');
+        await seedDatabase({ silent: false, closeConnection: false });
+      }
+    } catch (err) {
+      console.warn('[RoadDrive] Auto-seed check notice:', err.message);
+    }
+  }
+});
 
 const staticAllowedOrigins = [
   'http://localhost:5173',

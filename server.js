@@ -5,7 +5,9 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import { createServer as createViteServer } from 'vite';
 
-import { connectDB } from './server/config/db.js';
+import { connectDB, isMongoConnected } from './server/config/db.js';
+import Course from './server/models/Course.js';
+import { seedDatabase } from './server/seed.js';
 import authRoutes from './server/routes/authRoutes.js';
 import courseRoutes from './server/routes/courseRoutes.js';
 import lessonRoutes from './server/routes/lessonRoutes.js';
@@ -21,6 +23,17 @@ async function startServer() {
   const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 
   await connectDB();
+  if (isMongoConnected()) {
+    try {
+      const courseCount = await Course.countDocuments();
+      if (courseCount === 0) {
+        console.log('[RoadDrive] Empty database detected on startup. Seeding initial dataset...');
+        await seedDatabase({ silent: false, closeConnection: false });
+      }
+    } catch (err) {
+      console.warn('[RoadDrive] Auto-seed check notice:', err.message);
+    }
+  }
 
   const staticAllowedOrigins = [
     'http://localhost:5173',
