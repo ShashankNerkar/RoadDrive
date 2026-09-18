@@ -1,4 +1,3 @@
-
 import express from 'express';
 import path from 'path';
 import cors from 'cors';
@@ -78,7 +77,7 @@ async function startServer() {
     });
   }
 
-  app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  app.use((err, req, res, next) => {
     console.error('[Server Error]', err.message);
     res.status(err.status || 500).json({
       success: false,
@@ -92,4 +91,3 @@ async function startServer() {
 }
 
 startServer();
-
