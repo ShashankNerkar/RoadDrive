@@ -1,0 +1,7 @@
+{
+  "name": "RoadDrive - Driving School",
+  "description": "RoadDrive is a MERN-based driving school management system where students can enroll in courses and book driving sessions, instructors manage slots and bookings, and admins manage the overall system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
