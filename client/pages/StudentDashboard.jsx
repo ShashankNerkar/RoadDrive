@@ -184,7 +184,7 @@ export default function StudentDashboard() {
                             className="btn btn-secondary btn-sm"
                             id={`review-inst-${b._id}`}
                           >
-                            ★ Leave Review
+                            Leave Review
                           </button>
                         </td>
                       </tr>
@@ -243,7 +243,7 @@ function EnrolledCourseCard({ courseId, course, completedLessonIds, paymentStatu
             </span>
             {paymentStatus === 'paid' ? (
               <span className="badge badge-completed" style={{ fontSize: 11, background: '#f0fdf4', color: '#15803d', border: '1px solid #bbf7d0' }}>
-                💳 Razorpay Paid {paymentId && paymentId !== 'FREE_DIRECT' ? `(${paymentId.substring(0, 10)}...)` : ''}
+                Paid via Razorpay {paymentId && paymentId !== 'FREE_DIRECT' ? `(${paymentId.substring(0, 10)}...)` : ''}
               </span>
             ) : (
               <span className="badge" style={{ fontSize: 11, background: '#f1f5f9', color: '#475569', border: '1px solid #cbd5e1' }}>

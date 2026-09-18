@@ -85,7 +85,7 @@ export default function Instructors() {
                     <div className="stat-label">Rate</div>
                   </div>
                   <div className="stat-item">
-                    <div className="stat-value">★ 4.9</div>
+                    <div className="stat-value">4.9 / 5</div>
                     <div className="stat-label">Rating</div>
                   </div>
                   <div className="stat-item">
@@ -193,7 +193,7 @@ export default function Instructors() {
                         {rev.student?.name || 'Student'}
                       </span>
                       <span style={{ color: 'var(--accent)', fontWeight: 700, fontSize: 14 }}>
-                        {'★'.repeat(rev.rating)} ({rev.rating}/5)
+                        Rating: {rev.rating} / 5
                       </span>
                     </div>
                     <p style={{ fontSize: 14, color: 'var(--text-muted)' }}>{rev.comment}</p>

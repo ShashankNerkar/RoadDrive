@@ -48,7 +48,7 @@ export default function Login() {
 
         {/* Quick Demo Credentials Box - Ideal for interview demos */}
         <div className="demo-accounts" id="demo-credentials-box">
-          <div className="demo-title">⚡ Quick Demo Logins (Click to autofill):</div>
+          <div className="demo-title">Quick Demo Logins (Click to autofill):</div>
           <div className="demo-buttons">
             <button
               type="button"
@@ -57,7 +57,7 @@ export default function Login() {
               id="demo-student-btn"
               title="Rohit Shinde (Student)"
             >
-              🚗 Student (Rohit)
+              Student (Rohit)
             </button>
             <button
               type="button"
@@ -66,7 +66,7 @@ export default function Login() {
               id="demo-instructor-btn"
               title="Surya Dada (Instructor)"
             >
-              👨‍🏫 Instructor (Surya Dada)
+              Instructor (Surya Dada)
             </button>
             <button
               type="button"
@@ -75,7 +75,7 @@ export default function Login() {
               id="demo-admin-btn"
               title="Shashank Nerkar (Admin)"
             >
-              🛡️ Admin (Shashank)
+              Admin (Shashank)
             </button>
           </div>
         </div>
@@ -113,7 +113,7 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              placeholder="••••••••"
+              placeholder="Enter your password"
               id="login-password-input"
             />
           </div>

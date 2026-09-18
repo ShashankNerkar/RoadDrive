@@ -53,27 +53,31 @@ export default function ReviewModal({ instructor, onClose, onReviewSuccess }) {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label className="form-label">Rating</label>
-            <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-              {[1, 2, 3, 4, 5].map((star) => (
+            <label className="form-label">Rating (1 to 5)</label>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+              {[1, 2, 3, 4, 5].map((num) => (
                 <button
                   type="button"
-                  key={star}
-                  onClick={() => setRating(star)}
+                  key={num}
+                  onClick={() => setRating(num)}
                   style={{
-                    background: 'none',
-                    border: 'none',
-                    fontSize: 28,
+                    backgroundColor: num <= rating ? 'var(--primary)' : '#f1f5f9',
+                    color: num <= rating ? '#ffffff' : 'var(--text-muted)',
+                    border: `1px solid ${num <= rating ? 'var(--primary)' : 'var(--border)'}`,
+                    borderRadius: 'var(--radius-sm)',
+                    width: 36,
+                    height: 36,
+                    fontWeight: 700,
+                    fontSize: 14,
                     cursor: 'pointer',
-                    color: star <= rating ? '#f59e0b' : '#cbd5e1',
                   }}
-                  id={`rating-star-${star}`}
+                  id={`rating-score-${num}`}
                 >
-                  ★
+                  {num}
                 </button>
               ))}
-              <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--accent)' }}>
-                {rating} / 5 Stars
+              <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--text-dark)', marginLeft: 6 }}>
+                Score: {rating} / 5
               </span>
             </div>
           </div>

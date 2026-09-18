@@ -55,28 +55,28 @@ export default function Home() {
       <div className="trust-bar">
         <div className="trust-items">
           <div className="trust-item">
-            <div className="trust-item-icon">✓</div>
+            <div className="trust-item-icon" style={{ fontSize: 11, fontWeight: 700 }}>RTO</div>
             <div>
               <div className="trust-item-title">RTO Certified Coaches</div>
               <div className="trust-item-desc">Verified & experienced</div>
             </div>
           </div>
           <div className="trust-item">
-            <div className="trust-item-icon">🛡️</div>
+            <div className="trust-item-icon" style={{ fontSize: 11, fontWeight: 700 }}>Safe</div>
             <div>
               <div className="trust-item-title">Dual-Control Fleet</div>
               <div className="trust-item-desc">Equipped with passenger brakes</div>
             </div>
           </div>
           <div className="trust-item">
-            <div className="trust-item-icon">📈</div>
+            <div className="trust-item-icon" style={{ fontSize: 11, fontWeight: 700 }}>96%</div>
             <div>
               <div className="trust-item-title">96% RTO Pass Rate</div>
               <div className="trust-item-desc">Track & traffic mastery</div>
             </div>
           </div>
           <div className="trust-item">
-            <div className="trust-item-icon">⏱</div>
+            <div className="trust-item-icon" style={{ fontSize: 11, fontWeight: 700 }}>Flex</div>
             <div>
               <div className="trust-item-title">Flexible Morning & Eve</div>
               <div className="trust-item-desc">6:00 AM – 8:00 PM slots</div>
@@ -99,7 +99,7 @@ export default function Home() {
 
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-icon">👨‍🏫</div>
+              <div className="feature-icon" style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase' }}>Coach</div>
               <h3>Patient, Certified Coaches</h3>
               <p>
                 Our instructors specialize in nervous beginners, test preparation, and advanced motorway driving with calm, supportive guidance.
@@ -107,7 +107,7 @@ export default function Home() {
             </div>
 
             <div className="feature-card">
-              <div className="feature-icon">🚗</div>
+              <div className="feature-icon" style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase' }}>Fleet</div>
               <h3>Dual-Control Modern Cars</h3>
               <p>
                 Train in regularly serviced dual-control vehicles equipped with modern safety features, clear visibility, and smooth handling.
@@ -115,7 +115,7 @@ export default function Home() {
             </div>
 
             <div className="feature-card">
-              <div className="feature-icon">📋</div>
+              <div className="feature-icon" style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase' }}>Plan</div>
               <h3>Structured Practical Syllabus</h3>
               <p>
                 Follow a step-by-step curriculum from basic vehicle controls to complex roundabouts, parallel parking, and test mock trials.
@@ -123,7 +123,7 @@ export default function Home() {
             </div>
 
             <div className="feature-card">
-              <div className="feature-icon">📅</div>
+              <div className="feature-icon" style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase' }}>Slots</div>
               <h3>Flexible 1-on-1 Booking</h3>
               <p>
                 Browse instructor availability slots, reserve sessions online, and receive instant confirmation with notes on focus areas.
@@ -156,7 +156,7 @@ export default function Home() {
                 <div className="course-body">
                   <div className="course-meta">
                     <span className={`badge badge-${course.level.toLowerCase()}`}>{course.level}</span>
-                    <span style={{ fontSize: 13, color: 'var(--text-muted)', fontWeight: 600 }}>⏱ {course.duration}</span>
+                    <span style={{ fontSize: 13, color: 'var(--text-muted)', fontWeight: 600 }}>{course.duration}</span>
                   </div>
                   <h3 className="course-title">{course.name}</h3>
                   <p className="course-desc">{course.description}</p>
@@ -246,7 +246,7 @@ export default function Home() {
                     <div className="stat-label">Rate</div>
                   </div>
                   <div className="stat-item">
-                    <div className="stat-value">★ 4.9</div>
+                    <div className="stat-value">4.9 / 5</div>
                     <div className="stat-label">Rating</div>
                   </div>
                 </div>

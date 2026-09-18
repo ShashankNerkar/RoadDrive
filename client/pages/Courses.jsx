@@ -72,7 +72,7 @@ export default function Courses() {
               <div className="course-body">
                 <div className="course-meta">
                   <span className={`badge badge-${course.level.toLowerCase()}`}>{course.level}</span>
-                  <span style={{ fontSize: 13, color: 'var(--text-muted)' }}>⏱ {course.duration}</span>
+                  <span style={{ fontSize: 13, color: 'var(--text-muted)' }}>{course.duration}</span>
                 </div>
                 <h3 className="course-title">{course.name}</h3>
                 <p className="course-desc">{course.description}</p>

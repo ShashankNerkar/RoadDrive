@@ -93,7 +93,7 @@ export async function sendEmail({ to, subject, html, text }) {
  * 1. Send Course Enrollment Email
  */
 export async function sendCourseEnrollmentEmail({ to, studentName, courseName, price, paymentId, isPaid = false }) {
-  const subject = `🎓 Enrollment Confirmed: ${courseName} - RoadDrive Academy`;
+  const subject = `Enrollment Confirmed: ${courseName} - RoadDrive Driving School`;
   const paymentText = isPaid
     ? `Paid Tuition: ₹${price} (Razorpay ID: ${paymentId || 'N/A'})`
     : `Free Tuition: ₹0 (Complimentary Orientation)`;
@@ -177,7 +177,7 @@ export async function sendCourseEnrollmentEmail({ to, studentName, courseName, p
  * 2. Send Booking Confirmation Email (to Student & Instructor)
  */
 export async function sendBookingConfirmationEmail({ to, studentName, instructorName, instructorEmail, date, time, notes }) {
-  const subject = `🚗 Driving Session Booked: ${date} at ${time} with ${instructorName}`;
+  const subject = `Driving Session Booked: ${date} at ${time} with ${instructorName}`;
 
   const html = `
     <!DOCTYPE html>
@@ -258,7 +258,7 @@ export async function sendBookingConfirmationEmail({ to, studentName, instructor
 
   // Also notify instructor if email available
   if (instructorEmail && instructorEmail !== to) {
-    const instSubject = `📅 New Driving Lesson Booking: ${studentName} on ${date} at ${time}`;
+    const instSubject = `New Driving Lesson Booking: ${studentName} on ${date} at ${time}`;
     const instHtml = `
       <div style="font-family: sans-serif; max-width: 580px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
         <h2 style="color: #132a4a; margin-top: 0;">New Lesson Request Received</h2>
@@ -287,7 +287,7 @@ export async function sendBookingConfirmationEmail({ to, studentName, instructor
  * 3. Send Password Reset Email
  */
 export async function sendPasswordResetEmail({ to, name, resetUrl, expiresInMinutes = 60 }) {
-  const subject = `🔒 Reset Your Password - RoadDrive Academy`;
+  const subject = `Reset Your Password - RoadDrive Driving School`;
 
   const html = `
     <!DOCTYPE html>

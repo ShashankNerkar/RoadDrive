@@ -117,7 +117,7 @@ export default function Register() {
               onChange={handleChange}
               required
               minLength={6}
-              placeholder="••••••••"
+              placeholder="Enter your password"
             />
           </div>
 

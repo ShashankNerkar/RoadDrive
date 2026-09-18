@@ -246,7 +246,7 @@ export default function CourseDetails() {
         <div>
           <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 12 }}>
             <span className={`badge badge-${course.level.toLowerCase()}`}>{course.level}</span>
-            <span style={{ fontSize: 14, color: 'var(--text-muted)' }}>⏱ Duration: {course.duration}</span>
+            <span style={{ fontSize: 14, color: 'var(--text-muted)' }}>Duration: {course.duration}</span>
             {isFree && (
               <span className="badge badge-completed" style={{ background: '#dcfce7', color: '#166534', border: '1px solid #bbf7d0' }}>
                 Free Course
@@ -274,7 +274,7 @@ export default function CourseDetails() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                   <div>
                     <span className="badge badge-completed" style={{ padding: '8px 16px', fontSize: 14, display: 'block', textAlign: 'center' }}>
-                      ✓ Enrolled
+                      Enrolled
                     </span>
                     {enrollmentRecord?.paymentId && enrollmentRecord.paymentId !== 'FREE_DIRECT' && (
                       <span style={{ fontSize: 11, color: 'var(--text-muted)', display: 'block', marginTop: 4, textAlign: 'center' }}>
@@ -300,15 +300,12 @@ export default function CourseDetails() {
                     ) : isFree ? (
                       'Enroll for Free (Direct Access)'
                     ) : (
-                      <>
-                        <span>💳</span>
-                        <span>Pay ₹{course.price} via Razorpay</span>
-                      </>
+                      <span>Pay ₹{course.price} via Razorpay</span>
                     )}
                   </button>
                   {!isFree && (
                     <div style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'right', marginTop: 6 }}>
-                      🔒 Secure Razorpay Payment Verification
+                      Secure Razorpay Payment Verification
                     </div>
                   )}
                 </div>
@@ -326,12 +323,12 @@ export default function CourseDetails() {
             />
             <div style={{ padding: 20, backgroundColor: '#ffffff' }}>
               <h4 style={{ fontSize: 16, fontWeight: 700, marginBottom: 10 }}>What is included in this course:</h4>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8, fontSize: 14, color: 'var(--text-muted)' }}>
-                <li>✓ Full structured theoretical curriculum & road safety guides</li>
-                <li>✓ Behind-the-wheel preparation checklists</li>
-                <li>✓ Lesson progress tracking dashboard</li>
-                <li>✓ Eligibility for instructor driving session bookings</li>
-                <li>✓ Instant email confirmation & invoice receipt</li>
+              <ul style={{ listStyle: 'disc', paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 14, color: 'var(--text-muted)' }}>
+                <li>Full structured theoretical curriculum & road safety guides</li>
+                <li>Behind-the-wheel preparation checklists</li>
+                <li>Lesson progress tracking dashboard</li>
+                <li>Eligibility for instructor driving session bookings</li>
+                <li>Instant email confirmation & invoice receipt</li>
               </ul>
             </div>
           </div>
@@ -415,7 +412,6 @@ export default function CourseDetails() {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ fontSize: 18 }}>💳</span>
                 <h3 style={{ margin: 0, fontSize: 17, fontWeight: 700, color: '#ffffff' }}>
                   Razorpay Checkout
                 </h3>
@@ -455,7 +451,7 @@ export default function CourseDetails() {
               </div>
 
               <div style={{ fontSize: 13, color: '#475569', marginBottom: 20, lineHeight: 1.5, background: '#eff6ff', padding: 12, borderRadius: 6, border: '1px solid #bfdbfe' }}>
-                ℹ️ <strong>Razorpay Test & Verification Flow:</strong>
+                <strong>Razorpay Test & Verification Flow:</strong>
                 <div style={{ marginTop: 4 }}>
                   Clicking below will process the payment through the Razorpay verification service on the backend, verify the transaction signature, enroll your account, and send your confirmation email.
                 </div>

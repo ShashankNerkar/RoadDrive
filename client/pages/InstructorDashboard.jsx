@@ -225,7 +225,7 @@ export default function InstructorDashboard() {
                                 className="btn btn-primary btn-sm"
                                 id={`complete-btn-${b._id}`}
                               >
-                                Mark Completed ✓
+                                Mark Completed
                               </button>
                             )}
 
@@ -326,7 +326,7 @@ export default function InstructorDashboard() {
                     <div>
                       <strong>{slot.date}</strong> at <strong>{slot.time}</strong>
                       <span style={{ marginLeft: 10, fontSize: 12, fontWeight: 600, color: slot.isBooked ? 'var(--danger)' : 'var(--success)' }}>
-                        {slot.isBooked ? '● Booked' : '● Available'}
+                        {slot.isBooked ? 'Booked' : 'Available'}
                       </span>
                     </div>
                     {!slot.isBooked && (

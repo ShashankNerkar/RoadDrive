@@ -49,7 +49,7 @@ export default function ForgotPassword() {
             {resetToken && (
               <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(21, 128, 61, 0.2)' }}>
                 <div style={{ fontSize: 12, color: '#166534', marginBottom: 8, fontWeight: 600 }}>
-                  ⚡ Quick Test Shortcut (Dev / Preview Mode):
+                  Quick Test Shortcut (Dev / Preview Mode):
                 </div>
                 <Link
                   to={`/reset-password/${resetToken}`}

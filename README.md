@@ -4,7 +4,7 @@
 
 ---
 
-## 📁 1. Project Folder Structure
+## 1. Project Folder Structure
 
 ```text
 roaddrive/
@@ -64,7 +64,7 @@ roaddrive/
 
 ---
 
-## 🗄️ 2. MongoDB Mongoose Models
+## 2. MongoDB Mongoose Models
 
 ### **User Model (`server/models/User.js`)**
 - `name`: String (required)
@@ -109,7 +109,7 @@ roaddrive/
 
 ---
 
-## 🚀 3. REST API Routes
+## 3. REST API Routes
 
 | Method | Endpoint | Access | Description |
 |---|---|---|---|
@@ -143,7 +143,7 @@ roaddrive/
 
 ---
 
-## 💻 4. Running Locally
+## 4. Running Locally
 
 ### Prerequisites:
 - Node.js (v18+)
